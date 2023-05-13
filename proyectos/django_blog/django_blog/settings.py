@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'aplicaciones.blog',
-    'import_export'
+    'import_export',
+    'ckeditor'
 ]
 
 MIDDLEWARE = [
@@ -104,6 +105,14 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+#configuracion de CKeditor
+CKEDITOR_CONFIGS={
+    'default':{
+        'toolbar': 'full',        
+    },     
+}
+
 
 
 # Internationalization

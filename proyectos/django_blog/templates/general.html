@@ -1,8 +1,10 @@
-{% extends "base.html" %}{% load static %}
-<!---->
-
-{% block titulo %}General {% endblock titulo%}
-<!---->
-{% block cuerpo %}
-<h1>ESTO ES GENERAL</h1>
-{% endblock cuerpo %}
+{% extends 'base.html' %} {% block cuerpo %} {% block contenido %}
+<div class="container my-5">
+  <h1 class="mb-4">Esto es General</h1>
+  <p class="lead">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur,
+    elit non posuere vehicula, libero elit ullamcorper lectus, ut dignissim
+    metus arcu sit amet leo.
+  </p>
+</div>
+{% endblock contenido %} {% endblock cuerpo %}

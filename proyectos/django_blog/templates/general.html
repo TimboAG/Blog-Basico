@@ -1,4 +1,6 @@
-{% extends 'base.html' %} {% block cuerpo %} {% block contenido %}
+{% extends 'base.html' %} {% load static %} {% block head %}
+<link rel="stylesheet" href="{% static 'css/estilos.css' %}" />
+{% endblock head %} {% block cuerpo %}
 <div class="container my-5">
   <h1 class="mb-4">Esto es General</h1>
   <p class="lead">
@@ -7,4 +9,4 @@
     metus arcu sit amet leo.
   </p>
 </div>
-{% endblock contenido %} {% endblock cuerpo %}
+{% endblock cuerpo %}

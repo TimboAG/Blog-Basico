@@ -63,22 +63,22 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html"
+              <a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'blog:tecnologia' %}"
                 >Tecnología</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link px-lg-3 py-3 py-lg-4" href="post.html"
+              <a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'blog:cienciaficcion' %}"
                 >Ciencia ficción</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.html"
+              <a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'blog:programacion' %}"
                 >Programacion</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.html"
+              <a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'blog:videojuegos' %}"
                 >Video juegos</a
               >
             </li>
@@ -95,6 +95,20 @@
     </nav>
     {% endblock menu %}
     <!-- Page Header-->
+    {%block imagen%}
+   
+      {%endblock imagen%}
+      <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+          <div class="col-md-10 col-lg-8 col-xl-7">
+            <div class="site-heading">
+              {%block tituloPrincipal%} {%endblock tituloPrincipal%}
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
     {% block cuerpo %} {% endblock cuerpo %} {% block footer %}
     <!-- Footer-->
     <footer class="border-top">

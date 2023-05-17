@@ -1,12 +1,26 @@
-{% extends 'base.html' %} {% load static %} {% block head %}
-<link rel="stylesheet" href="{% static 'css/estilos.css' %}" />
-{% endblock head %} {% block cuerpo %}
-<div class="container my-5">
-  <h1 class="mb-4">Esto es General</h1>
-  <p class="lead">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur,
-    elit non posuere vehicula, libero elit ullamcorper lectus, ut dignissim
-    metus arcu sit amet leo.
-  </p>
-</div>
-{% endblock cuerpo %}
+{% extends "base.html" %}{% load static %}
+<!---->
+
+{% block head %}
+<link href="{% static '/css/styles.css' %}  " rel="stylesheet" />
+<!---->
+{% endblock head %} {%block imagen%}
+<header
+  class="masthead"
+  style="background-image: url('{% static 'assets/img/general.jpg' %}')"
+>
+  {%endblock imagen%} {%block tituloPrincipal%}
+  <h1>Estoy en general</h1>
+  <span class="subheading">Aprendiendo Django</span>
+  {%endblock tituloPrincipal%} {% block cuerpo %}
+
+  <div class="container my-5">
+    <h1 class="mb-4">Esto es General</h1>
+    <p class="lead">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur,
+      elit non posuere vehicula, libero elit ullamcorper lectus, ut dignissim
+      metus arcu sit amet leo.
+    </p>
+  </div>
+  {% endblock cuerpo%}
+</header>

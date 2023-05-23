@@ -21,6 +21,9 @@ class AutorAdmin(ImportExportModelAdmin,admin.ModelAdmin):
     list_display=('nombres','apellidos','correo', 'estado', 'fecha_creacion',)
     resource_class = AutorResorce
     
+
+    
     
 admin.site.register(Categoria, CategoriaAdmin)
 admin.site.register(Autor, AutorAdmin)
+admin.site.register(Post)

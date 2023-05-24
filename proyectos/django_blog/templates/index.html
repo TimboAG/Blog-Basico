@@ -1,4 +1,4 @@
-{% extends "post.html" %} {% load static %}
+{% extends "base.html" %} {% load static %}
 <!---->
 
 {% block titulo %}Principal {% endblock titulo%}
@@ -11,11 +11,5 @@
   {%endblock imagen%} {%block tituloPrincipal%}
   <h1>Estoy en index</h1>
   <span class="subheading">Aprendiendo Django</span>
-  {%endblock tituloPrincipal%} {% block cuerpo %} {% block miPost %}
-  <!--
-  -->
-  {% endblock miPost %}
-  <!-- Main Content-->
-
-  {% endblock cuerpo %}
+  {%endblock tituloPrincipal%}
 </header>

@@ -109,7 +109,31 @@
       </div>
     </header>
 
-    {% block cuerpo %} {% endblock cuerpo %} {% block footer %}
+    {% block cuerpo %}{% if post%} {% block miPost %}
+    {% for post in post  %}
+    <div class="container px-4 px-lg-5">
+      <div class="row gx-4 gx-lg-5 justify-content-center">
+          <div class="col-md-10 col-lg-8 col-xl-7">
+              <!-- Post preview-->
+              <div class="post-preview">
+                  <a href="post.html">
+                      <h2 class="post-title"> {{post.titulo}} </h2>
+                      <h3 class="post-subtitle"> {{post.descripcion}}  </h3>
+                  </a>
+                  <p class="post-meta">
+                      Escrito por 
+                      <strong> {{post.autor}}  </strong>
+                      el {{ post.fecha_creacion}}
+                  </p>
+              </div>
+              <!-- Divider-->
+              <hr class="my-4" />         
+          </div>
+          {%endfor%}
+          <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
+    {% endblock miPost %} {%else%}
+    <h1>NO HAY POST</h1>
+    {%endif%} {% endblock cuerpo %} {% block footer %}
     <!-- Footer-->
     <footer class="border-top">
       <div class="container px-4 px-lg-5">

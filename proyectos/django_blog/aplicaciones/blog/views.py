@@ -3,24 +3,26 @@ from .models import *
 
 # Create your views here.
 def home(request):    
-    return render(request, "index.html")
+    post= Post.objects.filter(activo=True)
+    return render(request, "index.html",  {"post": post})
 
 def general(request):
-    return render(request, "general.html")
+    post= Post.objects.filter(activo=True, categoria = Categoria.objects.get(nombre="General"))
+    return render(request, "general.html",{"post": post})
 
 def cienciaficcion(request):
-    return render(request, "cienciaficcion.html")
+    post= Post.objects.filter(activo=True, categoria = Categoria.objects.get(nombre="Ciencia Ficcion"))
+    return render(request, "cienciaficcion.html", {"post": post})
 
 def tecnologia(request):
-    return render(request, "tecnologia.html")
+    post= Post.objects.filter(activo=True, categoria = Categoria.objects.get(nombre="Tecnologia"))
+    return render(request, "tecnologia.html", {"post": post})
 
 def programacion(request):
-    return render(request, "programacion.html")
+    post= Post.objects.filter(activo=True, categoria = Categoria.objects.get(nombre="Programacion"))
+    return render(request, "programacion.html", {"post": post})
 
 def videojuegos(request):
-    return render(request, "videojuegos.html")
+    post= Post.objects.filter(activo=True, categoria = Categoria.objects.get(nombre="Video juegos"))
+    return render(request, "videojuegos.html", {"post": post})
 
-def post(request):
-    post= Post.objects.filter(activo=True)
-    print(post)
-    return render(request, "post.html", {"post": post})

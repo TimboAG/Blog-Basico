@@ -1,7 +1,8 @@
 from django.shortcuts import render
+from .models import *
 
 # Create your views here.
-def home(request):
+def home(request):    
     return render(request, "index.html")
 
 def general(request):
@@ -19,3 +20,7 @@ def programacion(request):
 def videojuegos(request):
     return render(request, "videojuegos.html")
 
+def post(request):
+    post= Post.objects.filter(activo=True)
+    print(post)
+    return render(request, "post.html", {"post": post})

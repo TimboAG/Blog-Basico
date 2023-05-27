@@ -5,6 +5,7 @@ from django.shortcuts import get_object_or_404
 # Create your views here.
 def home(request):    
     post= Post.objects.filter(activo=True)
+    print(request.GET)
     return render(request, "index.html",  {"post": post})
 
 def general(request):

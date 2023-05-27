@@ -26,3 +26,8 @@ def videojuegos(request):
     post= Post.objects.filter(activo=True, categoria = Categoria.objects.get(nombre="Video juegos"))
     return render(request, "videojuegos.html", {"post": post})
 
+def postdetalle(request, slug):
+    post= Post.objects.get(slug =slug)
+    print(post)
+    return render(request, "post.html", {"postdetalle": post})
+

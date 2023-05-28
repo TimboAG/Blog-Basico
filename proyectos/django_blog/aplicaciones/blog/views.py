@@ -4,8 +4,10 @@ from django.shortcuts import get_object_or_404
 
 # Create your views here.
 def home(request):    
+    queryset= request.GET.get("buscar")
     post= Post.objects.filter(activo=True)
-    print(request.GET)
+    if queryset:
+        post= Post.objects.filter(activo=True)
     return render(request, "index.html",  {"post": post})
 
 def general(request):

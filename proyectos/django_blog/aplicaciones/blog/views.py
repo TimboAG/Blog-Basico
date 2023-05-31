@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import *
 from django.shortcuts import get_object_or_404
 from django.db.models import Q
+from django.core.paginator import Paginator
 
 # Create your views here.
 def home(request):    
@@ -9,6 +10,10 @@ def home(request):
     post= Post.objects.filter(activo=True)
     if queryset:
         post= Post.objects.filter(Q(titulo__icontains = queryset ) | Q(descripcion__icontains = queryset )  ).distinct()
+    
+    paginator= Paginator(post,1)
+    page=request.GET.get('page')
+    post=paginator.get_page(page)
     return render(request, "index.html",  {"post": post})
 
 def general(request):
@@ -17,6 +22,9 @@ def general(request):
     if queryset:
         post= Post.objects.filter(Q(titulo__icontains = queryset ) | Q(descripcion__icontains = queryset ),
                                 activo=True, categoria = Categoria.objects.get(nombre__iexact="General")).distinct()
+    paginator= Paginator(post,1)
+    page=request.GET.get('page')
+    post=paginator.get_page(page)
     return render(request, "general.html",{"post": post})
 
 def cienciaficcion(request):
@@ -25,6 +33,9 @@ def cienciaficcion(request):
     if queryset:
         post= Post.objects.filter(Q(titulo__icontains = queryset ) | Q(descripcion__icontains = queryset ),
                                 activo=True, categoria = Categoria.objects.get(nombre__iexact="Ciencia Ficcion")).distinct()
+    paginator= Paginator(post,1)
+    page=request.GET.get('page')
+    post=paginator.get_page(page)
     return render(request, "cienciaficcion.html", {"post": post})
 
 def tecnologia(request):
@@ -33,6 +44,9 @@ def tecnologia(request):
     if queryset:
             post= Post.objects.filter(Q(titulo__icontains = queryset ) | Q(descripcion__icontains = queryset ),
                                 activo=True, categoria = Categoria.objects.get(nombre__iexact="Tecnologia")).distinct()
+    paginator= Paginator(post,1)
+    page=request.GET.get('page')
+    post=paginator.get_page(page)
     return render(request, "tecnologia.html", {"post": post})
 
 def programacion(request):
@@ -49,6 +63,9 @@ def videojuegos(request):
     if queryset:
             post= Post.objects.filter(Q(titulo__icontains = queryset ) | Q(descripcion__icontains = queryset ),
                                 activo=True, categoria = Categoria.objects.get(nombre__iexact="Video juegos")).distinct()
+    paginator= Paginator(post,1)
+    page=request.GET.get('page')
+    post=paginator.get_page(page)
     return render(request, "videojuegos.html", {"post": post})
 
 def postdetalle(request, slug):

@@ -147,8 +147,23 @@
               <hr class="my-4" />         
           </div>
           {%endfor%}
-          <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
-    {% endblock miPost %} {%else%}
+          <!---->
+          {%if post.has_previous %}
+          <div class="d-flex justify-content-end mb-4">
+            <a class="btn btn-primary text-uppercase" href="?page={{post.previous_page_number}}
+             {%if request.GET.buscar %} &q={{request.GET.buscar}}{%endif%} ">Anterior <- </a>
+          </div>
+          {%endif%}
+          <!---->
+           <!---->
+           {%if post.has_next %}
+           <div class="d-flex justify-content-end mb-4">
+             <a class="btn btn-primary text-uppercase" href="?page={{post.next_page_number}}
+             {%if request.GET.buscar %} &q={{request.GET.buscar}}{%endif%}">Siguiente →</a>
+           </div>
+           {%endif%}
+           <!---->
+          {% endblock miPost %} {%else%}
     <h1>NO HAY POST</h1>
     {%endif%} {% endblock cuerpo %} {% block footer %}
     <!-- Footer-->

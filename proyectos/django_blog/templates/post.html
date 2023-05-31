@@ -12,6 +12,6 @@
   <h1>{{postdetalle.titulo}}</h1>
   <span class="subheading">{{postdetalle.descripcion}}</span>
   <span class="subheading"><p>Escrito por: {{postdetalle.autor}}</p></span>
-  {%endblock tituloPrincipal%}
-</header> 
-{% block cuerpo %}{{postdetalle.contenido | safe}} {% endblock cuerpo %}
+  {%endblock tituloPrincipal%} {%block busqueda%} {%endblock busqueda%}
+</header>
+{% block cuerpo%}{{postdetalle.contenido | safe}} {% endblock cuerpo %}

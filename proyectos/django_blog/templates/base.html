@@ -107,17 +107,18 @@
           </div>
         </div>
         <br>
+        {%block busqueda%}
         <div class="container">
           <div class="row">
             <div class="col-md-12 search">
               <form class="d-flex" role="search" method="get">
-                <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" name="buscar">
+                <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" name="buscar" value="{{request.GET.buscar}}">
                 <button class="btn btn-success" type="submit">Search</button>
               </form>
             </div>
           </div>
         </div>
-    
+        {%endblock busqueda%}
       </div>
       
     </header>

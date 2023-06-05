@@ -43,7 +43,7 @@ def tecnologia(request):
     post= Post.objects.filter(activo=True, categoria = Categoria.objects.get(nombre__iexact="Tecnologia"))
     if queryset:
             post= Post.objects.filter(Q(titulo__icontains = queryset ) | Q(descripcion__icontains = queryset ),
-                                activo=True, categoria = Categoria.objects.get(nombre__iexact="Tecnologia")).distinct()
+                              activo=True, categoria = Categoria.objects.get(nombre__iexact="Tecnologia")).distinct()
     paginator= Paginator(post,1)
     page=request.GET.get('page')
     post=paginator.get_page(page)
